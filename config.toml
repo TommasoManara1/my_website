@@ -139,9 +139,9 @@ disqusShortname = ""
   [params.two]
     enable = true
     title = "My Maxim"
-    subtitle = """Simplicity is the ultimate sophistication."""
-    buttonText = "Get Started"
-    url = "blogs"
+    subtitle = """Simplicity is the ultimate sophistication - Leonardo Da Vinci"""
+    buttonText = "Learn more about Leonardo Da Vinci"
+    url = "https://www.britannica.com/biography/Leonardo-da-Vinci"
 
 
   # Contact section
