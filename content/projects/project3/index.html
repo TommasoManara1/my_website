@@ -14,8 +14,7 @@ output:
 
 
 
-<div id="challenge-1-cdc-covid-19-public-use-data" class="section level1">
-<h1>Challenge 1: CDC COVID-19 Public Use Data</h1>
+<p>#CDC COVID-19 Public Use Data</p>
 <p>Let us revisit the <a href="https://data.cdc.gov/Case-Surveillance/COVID-19-Case-Surveillance-Public-Use-Data/vbim-akqf">CDC Covid-19 Case Surveillance Data</a>. There are well over 3 million entries of individual, de-identified patient data. Since this is a large file, I suggest use <code>vroom</code> to load it and keep <code>cache=TRUE</code> in the chunk options.</p>
 <pre class="r"><code># file contains 11 variables and 3.66m rows and is well over 380Mb. 
 # It will take time to download
@@ -73,5 +72,3 @@ cleaned_data %&gt;%
     scale_x_continuous(limits=c(0,0.85),breaks=seq(0,0.8,0.2),label=scales::percent)+
     theme(plot.margin = unit(c(0.1,0.1,0.1,0.1),&quot;cm&quot;))</code></pre>
 <p><img src="index_files/figure-html/two_pictures-2.png" width="648" style="display: block; margin: auto;" /></p>
-<p><img src="/Users/tommaso/Desktop/my_website/covid_death_rate_comorbidities.png" width="100%" style="display: block; margin: auto;" /><img src="/Users/tommaso/Desktop/my_website/covid_death_rate_icu.png" width="100%" style="display: block; margin: auto;" /></p>
-</div>

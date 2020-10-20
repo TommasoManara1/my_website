@@ -52,7 +52,7 @@ library(purrr)
 library(lubridate) #to handle dates
 ```
 
-This page looks at analysing a  dataset from IBM, to understand and explore some of the statistics present and gain some inferences through this. We proceed by cleaning the data, ensuring effective analysis. Subsequently, we will make note of the interesting results we see from the data!
+This page looks at analysing a  dataset from IBM, to understand and explore some of the statistics present and gain some inferences through this. 
 
 First let us load the data
 
@@ -63,7 +63,7 @@ glimpse(hr_dataset)
 
 ```
 
-I am going to clean the data set, as variable names are in capital letters, some variables are not really necessary, and some variables, e.g., `education` are given as a number rather than a more useful description
+I am going to clean the data set.
 
 
 ```{r clean_data, message=FALSE, warning=FALSE}

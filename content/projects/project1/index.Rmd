@@ -102,12 +102,6 @@ data_summary %>%
 ```
 
 
-We can facet by year, and add an orange line at zero. Our plot should look like this:
-
-```{r trump_margins, echo=FALSE, out.width="100%"}
-knitr::include_graphics(here::here("trump_approval_margin.png"), error = FALSE)
-```
-
 ## Compare Confidence Intervals
 
 ```{r compare_two_weeks,warnings= FALSE, message=FALSE}

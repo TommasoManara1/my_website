@@ -16,7 +16,7 @@ output:
 
 
 
-<p>This page looks at analysing a dataset from IBM, to understand and explore some of the statistics present and gain some inferences through this. We proceed by cleaning the data, ensuring effective analysis. Subsequently, we will make note of the interesting results we see from the data!</p>
+<p>This page looks at analysing a dataset from IBM, to understand and explore some of the statistics present and gain some inferences through this.</p>
 <p>First let us load the data</p>
 <pre class="r"><code>hr_dataset &lt;- read_csv(here::here(&quot;data&quot;, &quot;datasets_1067_1925_WA_Fn-UseC_-HR-Employee-Attrition.csv&quot;))
 glimpse(hr_dataset)</code></pre>
@@ -57,7 +57,7 @@ glimpse(hr_dataset)</code></pre>
 ## $ YearsInCurrentRole       &lt;dbl&gt; 4, 7, 0, 7, 2, 7, 0, 0, 7, 7, 4, 5, 2, 2, 2,…
 ## $ YearsSinceLastPromotion  &lt;dbl&gt; 0, 1, 0, 3, 2, 3, 0, 0, 1, 7, 0, 0, 4, 1, 0,…
 ## $ YearsWithCurrManager     &lt;dbl&gt; 5, 7, 0, 0, 2, 6, 0, 0, 8, 7, 3, 8, 3, 2, 3,…</code></pre>
-<p>I am going to clean the data set, as variable names are in capital letters, some variables are not really necessary, and some variables, e.g., <code>education</code> are given as a number rather than a more useful description</p>
+<p>I am going to clean the data set.</p>
 <pre class="r"><code>hr_cleaned &lt;- hr_dataset %&gt;% 
   clean_names() %&gt;% 
   mutate(

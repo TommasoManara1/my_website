@@ -1,6 +1,6 @@
 ---
-title: "Session 2: Homework 1"
-author: "Group 2"
+title: "Alcol consumption"
+author: "Tommaso Manara"
 date: "`r Sys.Date()`"
 output:
   html_document:
@@ -48,7 +48,7 @@ library(lubridate) #to handle dates
 
 # Where Do People Drink The Most Beer, Wine And Spirits?
 
-Back in 2014, [fivethiryeight.com](https://fivethirtyeight.com/features/dear-mona-followup-where-do-people-drink-the-most-beer-wine-and-spirits/) published an article on alchohol consumption in different countries. The data `drinks` is available as part of the `fivethirtyeight` package. Make sure you have installed the `fivethirtyeight` package before proceeding.
+Back in 2014, [fivethiryeight.com](https://fivethirtyeight.com/features/dear-mona-followup-where-do-people-drink-the-most-beer-wine-and-spirits/) published an article on alchohol consumption in different countries. 
 
 
 ```{r, load_alcohol_data}

@@ -46,7 +46,7 @@ library(vroom)
 ```
 
 
-# Challenge 1: CDC COVID-19 Public Use Data
+#CDC COVID-19 Public Use Data
 
 Let us revisit the [CDC Covid-19 Case Surveillance Data](https://data.cdc.gov/Case-Surveillance/COVID-19-Case-Surveillance-Public-Use-Data/vbim-akqf). There are well over 3 million entries of individual, de-identified patient data. Since this is a large file, I suggest use `vroom` to load it and keep `cache=TRUE` in the chunk options.
 
@@ -115,7 +115,3 @@ cleaned_data %>%
     theme(plot.margin = unit(c(0.1,0.1,0.1,0.1),"cm"))
 ```
 
-```{r covid_challenge, echo=FALSE, out.width="100%"}
-knitr::include_graphics(here::here("covid_death_rate_comorbidities.png"), error = FALSE)
-knitr::include_graphics(here::here("covid_death_rate_icu.png"), error = FALSE)
-```
