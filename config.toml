@@ -112,14 +112,14 @@ disqusShortname = ""
     [[params.tiles.showcase]]
       title = "Airbnb in Athens"
       subtitle = "A brief analysis"
-      image = "pic04.jpg"
-      url = "projects/project4"
+      image = "pic05.jpg"
+      url = "projects/project5"
 
     [[params.tiles.showcase]]
       title = "IBM HR Anaytics"
       subtitle = "Ipsum Dolor Sit Amet"
-      image = "pic05.jpg"
-      url = "projects/project5"
+      image = "pic04.jpg"
+      url = "projects/project4"
 
     [[params.tiles.showcase]]
       title = "More about me"
