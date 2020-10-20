@@ -110,22 +110,22 @@ disqusShortname = ""
       url = "projects/project3"
 
     [[params.tiles.showcase]]
-      title = "Returns of Financial Stocks"
-      subtitle = "How to value financial stock returns"
+      title = "Airbnb in Athens"
+      subtitle = "A brief analysis"
       image = "pic04.jpg"
       url = "projects/project4"
 
     [[params.tiles.showcase]]
-      title = "Consequat"
+      title = "IBM HR Anaytics"
       subtitle = "Ipsum Dolor Sit Amet"
       image = "pic05.jpg"
-      url = "blogs/ipsum"
+      url = "projects/project5"
 
     [[params.tiles.showcase]]
-      title = "Etiam"
-      subtitle = "Feugiat Amet Tempus"
+      title = "More about me"
+      subtitle = "Bibliography and CV"
       image = "pic06.jpg"
-      url = "blogs/ipsum"
+      url = "projects/project6"
     # You can make more showcases by copy and pasting the code above
 
   [params.blog]
