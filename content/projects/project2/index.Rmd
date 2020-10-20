@@ -1,6 +1,6 @@
 ---
-title: "Alcol Consumption"
-author: "Tommaso Manara"
+title: "Session 2: Homework 1"
+author: "Group 2"
 date: "`r Sys.Date()`"
 output:
   html_document:
@@ -116,3 +116,4 @@ As seen in the graph, Grenada is by far the leader in global spirit consumption.
 What can you infer from these plots? Don't just explain what's in the graph, but speculate or tell a short story (1-2 paragraphs max).
 
 We can clearly see that countries with a strong tradition and production history regarding a specific alcohol will also be large consumers of it. For instance this evidently occurs in France and Russia where wine and spirit are respectively very common. Moreover, what suprised us was seeing Italy only as the 9th consumer in the world of wine despite being the second producer overall. France, instead, being the first producer was also the first consumer of wine worldwide, something largely expected from our assumptions. 
+
