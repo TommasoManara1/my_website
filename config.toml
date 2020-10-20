@@ -110,10 +110,10 @@ disqusShortname = ""
       url = "projects/project3"
 
     [[params.tiles.showcase]]
-      title = "Ipsum"
-      subtitle = "Nisl Sed Aliquam"
+      title = "Returns of Financial Stocks"
+      subtitle = "How to value financial stock returns"
       image = "pic04.jpg"
-      url = "blogs/ipsum"
+      url = "projects/project4"
 
     [[params.tiles.showcase]]
       title = "Consequat"
