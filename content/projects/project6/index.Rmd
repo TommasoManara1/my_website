@@ -1,7 +1,7 @@
 
 ---
-title: "Session 2: Homework 1"
-author: "Group 2"
+title: "CV"
+author: "Tommaso Manara"
 date: "`r Sys.Date()`"
 output:
   html_document:
@@ -24,15 +24,14 @@ options(digits = 3)
 
 # default figure size
 knitr::opts_chunk$set(
-  fig.width=6.75, 
-  fig.height=6.75,
+  fig.width=15, 
+  fig.height=15,
   fig.align = "center"
 )
 ```
 
 
 ```{r load-libraries, warning=FALSE, message=FALSE, echo=FALSE}
-
 library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
 library(mosaic)
 library(ggthemes)
@@ -50,5 +49,7 @@ library(lubridate) #to handle dates
 
 
 ```{r challenge2, echo=FALSE, out.width="100%"}
-knitr::include_graphics(here::here("proejct6", "cv.jpg"), error = FALSE)
+library(knitr)
+
+include_graphics("cv.png")
 ```
