@@ -1,0 +1,77 @@
+---
+title: "Covid-19 Update"
+author: "Tommaso Manara"
+date: "2020-10-20"
+output:
+  html_document:
+    theme: flatly
+    highlight: zenburn
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+    code_folding: show 
+---
+
+
+
+<div id="challenge-1-cdc-covid-19-public-use-data" class="section level1">
+<h1>Challenge 1: CDC COVID-19 Public Use Data</h1>
+<p>Let us revisit the <a href="https://data.cdc.gov/Case-Surveillance/COVID-19-Case-Surveillance-Public-Use-Data/vbim-akqf">CDC Covid-19 Case Surveillance Data</a>. There are well over 3 million entries of individual, de-identified patient data. Since this is a large file, I suggest use <code>vroom</code> to load it and keep <code>cache=TRUE</code> in the chunk options.</p>
+<pre class="r"><code># file contains 11 variables and 3.66m rows and is well over 380Mb. 
+# It will take time to download
+
+# URL link to CDC to download data
+url &lt;- &quot;https://data.cdc.gov/api/views/vbim-akqf/rows.csv?accessType=DOWNLOAD&quot;
+
+covid_data &lt;- vroom::vroom(url)%&gt;% # If vroom::vroom(url) doesn&#39;t work, use read_csv(url)
+clean_names()
+
+cleaned_data &lt;- covid_data %&gt;% 
+  filter(death_yn %in% c(&quot;Yes&quot;, &quot;No&quot;)) %&gt;% #to remove non-meaningful value in death_yn.
+  filter(medcond_yn %in% c(&quot;Yes&quot;,&quot;No&quot;) &amp; icu_yn %in% c(&quot;Yes&quot;, &quot;No&quot;)) %&gt;% #to remove non-meaningful value in medcond_yn and icu_yn.
+  filter(age_group!=&quot;Unknown&quot;) %&gt;%  #to remove non-meaningful value in age_group.
+  filter(sex %in% c(&quot;Male&quot;,&quot;Female&quot;)) %&gt;% 
+    mutate(
+    medcond_yn=case_when(
+      medcond_yn==&quot;Yes&quot; ~ &quot;With comorbidities&quot;,
+      medcond_yn==&quot;No&quot; ~ &quot;Without comorbidities&quot;
+    ),
+    icu_yn=case_when(
+    icu_yn==&quot;Yes&quot; ~ &quot;Admitted to ICU&quot;,
+    icu_yn==&quot;No&quot; ~ &quot;No ICU&quot;
+    ))</code></pre>
+<p>Given the data we have, we produce two graphs that show death % rate:</p>
+<ol style="list-style-type: decimal">
+<li>by age group, sex, and whether the patient had co-morbidities or not</li>
+<li>by age group, sex, and whether the patient was admited to Intensive Care Unit (ICU) or not.</li>
+</ol>
+<pre class="r"><code>#by age group, sex, and whether the patient had co-morbidities or not.
+cleaned_data %&gt;% 
+  group_by(sex, medcond_yn, age_group) %&gt;% 
+  summarise(death_num = count(death_yn==&quot;Yes&quot;), total_num =n(), death_rate = death_num/n()) %&gt;% 
+  
+  ggplot(aes(x=death_rate,y=reorder(age_group, death_rate)))+
+    geom_col(fill=&quot;#003366&quot;)+
+    theme_bw() +
+    labs (title = &quot;Covid death % by age group, sex and whether patient was admitted to ICU&quot;, x=&quot;&quot;, y=&quot;&quot;) +
+    geom_text(aes(label=round(death_rate*100,1)), hjust=-0.1, size=3)+ #ajust size, position, and decimal for barlabels.
+    facet_grid(medcond_yn ~ sex)+ #get the 2x2 combined plot, vertical medcond_yn and horizontal sex.
+    scale_x_continuous(limits=c(0,0.85),breaks=seq(0,0.8,0.2),label=scales::percent)+ #make all labels in the plot and  axis label percent.
+    theme(plot.margin = unit(c(0.1,0.1,0.1,0.1),&quot;cm&quot;))</code></pre>
+<p><img src="index_files/figure-html/two_pictures-1.png" width="648" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>#by age group, sex, and whether the patient was admited to Intensive Care Unit (ICU) or not.
+cleaned_data %&gt;% 
+  group_by(sex, icu_yn, age_group) %&gt;% 
+  summarise(death_num = count(death_yn==&quot;Yes&quot;), total_num =n(), death_rate = death_num/n()) %&gt;% 
+  
+  ggplot(aes(x=death_rate,y=reorder(age_group, death_rate)))+
+    geom_col(fill=&quot;#FF9999&quot;)+
+    theme_bw() +
+    labs (title = &quot;Covid death % by age group, sex and whether patient was admitted to ICU&quot;, x=&quot;&quot;, y=&quot;&quot;) +
+    geom_text(aes(label=round(death_rate*100,1)), hjust=-0.1, size=3)+
+    facet_grid(icu_yn ~ sex)+ #get the 2x2 combined plot, vertical icu_yn and horizontal sex.
+    scale_x_continuous(limits=c(0,0.85),breaks=seq(0,0.8,0.2),label=scales::percent)+
+    theme(plot.margin = unit(c(0.1,0.1,0.1,0.1),&quot;cm&quot;))</code></pre>
+<p><img src="index_files/figure-html/two_pictures-2.png" width="648" style="display: block; margin: auto;" /></p>
+<p><img src="/Users/tommaso/Desktop/my_website/covid_death_rate_comorbidities.png" width="100%" style="display: block; margin: auto;" /><img src="/Users/tommaso/Desktop/my_website/covid_death_rate_icu.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
