@@ -133,7 +133,7 @@ disqusShortname = ""
     # at 'exampleSite/content/blogs'. Copy the 'blogs' folder into the 'content' directory
     # at the root of this Hugo site.
     # For more informtion take a look at the README.
-    # To add more blogs just copy and paste the code.
+    # To add more blogs just copy and paste the code. 
 
   # Section Type Two
   [params.two]
